@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bingo Creator</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>🎉 Bingo Creator</h1>
+    <p>Genera cartones de bingo temáticos (canciones, series, lo que quieras) y expórtalos a PDF en A4.</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel config-panel">
+      <h2>Configuración</h2>
+
+      <label for="values-input">
+        Valores del bingo
+        <span class="hint">Separados por comas, punto y coma o uno por línea</span>
+      </label>
+      <textarea
+        id="values-input"
+        rows="8"
+        placeholder="Bohemian Rhapsody - Queen, Thriller - Michael Jackson, La Macarena - Los del Río..."
+      ></textarea>
+
+      <div class="file-row">
+        <label class="file-label" for="file-input">📂 Cargar archivo .csv / .txt</label>
+        <label class="file-label" for="exportify-input">🎧 Importar CSV de Exportify (Spotify)</label>
+        <input type="file" id="file-input" accept=".csv,.txt" hidden />
+        <input type="file" id="exportify-input" accept=".csv" hidden />
+        <span id="values-count" class="hint"></span>
+      </div>
+
+      <label for="title-input">Título del bingo</label>
+      <input type="text" id="title-input" placeholder="Bingo Musical – Fiesta 2026" value="Bingo" />
+
+      <label for="fixed-input">
+        Valor fijo en todos los cartones
+        <span class="hint">Opcional. Aparecerá en la celda central de cada cartón</span>
+      </label>
+      <input type="text" id="fixed-input" placeholder="100" />
+
+      <div class="numbers-row">
+        <label>
+          Nº de cartones
+          <input type="number" id="cards-input" min="1" max="500" value="20" />
+        </label>
+        <label>
+          Filas
+          <input type="number" id="rows-input" min="1" max="10" value="3" />
+        </label>
+        <label>
+          Columnas
+          <input type="number" id="cols-input" min="1" max="10" value="5" />
+        </label>
+      </div>
+
+      <div id="message" class="message" hidden></div>
+
+      <div class="actions">
+        <button id="generate-btn" class="btn primary">🎲 Generar cartones</button>
+        <button id="export-btn" class="btn secondary" disabled>📄 Exportar PDF</button>
+      </div>
+    </section>
+
+    <section class="panel preview-panel">
+      <h2>Vista previa</h2>
+      <div id="preview" class="preview-grid">
+        <p class="empty-hint">Aquí aparecerán los cartones generados.</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
