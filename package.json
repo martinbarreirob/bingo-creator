@@ -1,0 +1,19 @@
+{
+  "name": "bingo-creator",
+  "version": "1.0.0",
+  "description": "Generador de cartones de bingo temáticos (musicales, series...) con exportación a PDF",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.8"
+  },
+  "devDependencies": {
+    "vite": "^7.3.6"
+  }
+}
